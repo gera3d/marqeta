@@ -148,7 +148,19 @@ module.exports = function(grunt) {
                 ext: '.min.css'
               }]
             }
-          }
+          },
+
+        htmlmin: {                                     // Task
+        dist: {                                      // Target
+            options: {                                 // Target options
+            removeComments: true,
+            collapseWhitespace: true
+            },
+            files: {                                   // Dictionary of files
+            '../index.html': 'index.html',     // 'destination': 'source'
+            }
+        }
+        }
     });
 
     // load tasks
@@ -160,8 +172,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-
-
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     
 
     // register task
