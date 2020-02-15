@@ -54,51 +54,51 @@ module.exports = function(grunt) {
             }
         },
       
-          // concatenation and minification all in one
-          uglify: {
-            options: {
-                sourceMap: true
-            },
-            dist: {
-                files: {
-                    'js/build/vendor.min.js': [
-                        'js/vendor/imagesloaded.pkgd.min.js',
-                        'js/vendor/bgsrcset.js',
-                        'js/vendor/slick.js',
-                        'js/vendor/social-share-kit.min.js',
-						'js/vendor/jsrender/jsrender.js',
-						'js/vendor/underscore/underscore-min.js',
-						'js/vendor/unveil/jquery.unveil.min.js',
-						'js/vendor/history/scripts/bundled-uncompressed/html5/jquery.history.js',
-						'js/vendor/jquery.xdomainrequest.min.js',
-						'js/vendor/jquery-validation/dist/jquery.validate.min.js',
-						'js/vendor/jquery-zoom/jquery.zoom.min.js',
-                        'js/vendor/jquery.svg.package-1.5.0/jquery.svg.min.js',
-                        'js/vendor/flickity.pkgd.min.js',
-                        'js/vendor/flickity-fade.js',
-                        'js/vendor/modernizr-custom2.js'
-                    ],
-                    'js/build/script.min.js': [
-                        'js/source/utilities.js',
-						'js/source/shop-utilities.js',
-						'js/source/shop-cart-interaction.js',
-						'js/source/shop-sidebar-filters.js',
-						'js/source/shop-init.js',
-                        'js/source/global.js',
-                        'js/source/interactive-map.js',
-                        'js/source/vineyards-map.js',
-                        'js/source/jquery.matchHeight-min.js'
-                    ],
-                    'js/build/admin-api.min.js': [
-                        'js/vendor/jsrender/jsrender.js',
-                        'js/vendor/underscore/underscore-min.js',
-                        'js/source/shop-utilities.js',
-                        'js/source/shop-data-processing.js',
-                        'js/source/shop-admin.js'
-                    ]
-                }
-            }
-        },
+        //   // concatenation and minification all in one
+        //   uglify: {
+        //     options: {
+        //         sourceMap: true
+        //     },
+        //     dist: {
+        //         files: {
+        //             'js/build/vendor.min.js': [
+        //                 'js/vendor/imagesloaded.pkgd.min.js',
+        //                 'js/vendor/bgsrcset.js',
+        //                 'js/vendor/slick.js',
+        //                 'js/vendor/social-share-kit.min.js',
+		// 				'js/vendor/jsrender/jsrender.js',
+		// 				'js/vendor/underscore/underscore-min.js',
+		// 				'js/vendor/unveil/jquery.unveil.min.js',
+		// 				'js/vendor/history/scripts/bundled-uncompressed/html5/jquery.history.js',
+		// 				'js/vendor/jquery.xdomainrequest.min.js',
+		// 				'js/vendor/jquery-validation/dist/jquery.validate.min.js',
+		// 				'js/vendor/jquery-zoom/jquery.zoom.min.js',
+        //                 'js/vendor/jquery.svg.package-1.5.0/jquery.svg.min.js',
+        //                 'js/vendor/flickity.pkgd.min.js',
+        //                 'js/vendor/flickity-fade.js',
+        //                 'js/vendor/modernizr-custom2.js'
+        //             ],
+        //             'js/build/script.min.js': [
+        //                 'js/source/utilities.js',
+		// 				'js/source/shop-utilities.js',
+		// 				'js/source/shop-cart-interaction.js',
+		// 				'js/source/shop-sidebar-filters.js',
+		// 				'js/source/shop-init.js',
+        //                 'js/source/global.js',
+        //                 'js/source/interactive-map.js',
+        //                 'js/source/vineyards-map.js',
+        //                 'js/source/jquery.matchHeight-min.js'
+        //             ],
+        //             'js/build/admin-api.min.js': [
+        //                 'js/vendor/jsrender/jsrender.js',
+        //                 'js/vendor/underscore/underscore-min.js',
+        //                 'js/source/shop-utilities.js',
+        //                 'js/source/shop-data-processing.js',
+        //                 'js/source/shop-admin.js'
+        //             ]
+        //         }
+        //     }
+        // },
 
 
         sass: {
@@ -108,7 +108,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'css/build/home.css': 'css/source/home.scss',
+                    'css/build/global.css': 'css/source/dynamic.scss',
                 }
             }
         },
@@ -136,7 +136,19 @@ module.exports = function(grunt) {
             dist: {
                 src: 'css/build/*.css'
             }
-        }
+        },
+
+        cssmin: {
+            target: {
+              files: [{
+                expand: true,
+                cwd: 'css/build/',
+                src: ['*.css', '!*.min.css'],
+                dest: 'css/build/',
+                ext: '.min.css'
+              }]
+            }
+          }
     });
 
     // load tasks
@@ -147,6 +159,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+
 
     
 
@@ -156,7 +170,8 @@ module.exports = function(grunt) {
         'sass',
         'uglify',
         'postcss',
-        'watch'
+        'watch',
+        'cssmin'
     ]);
     
 
