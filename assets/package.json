@@ -1,0 +1,25 @@
+{
+    "name": "marqeta",
+    "version": "1.0.0",
+    "description": "Marqeta Homepage",
+    "main": "Gruntfile.js",
+    "dependencies": {
+        "autoprefixer": "^9.2.1",
+        "foundation-sites": "6.4.3",
+        "grunt": "^1.0.4",
+        "grunt-bower-task": "~0.4.0",
+        "grunt-contrib-jshint": "~1.1.0",
+        "grunt-contrib-uglify": "~3.3.0",
+        "grunt-contrib-watch": "^1.1.0",
+        "grunt-postcss": "^0.9.0",
+        "grunt-sass": "~2.0.0",
+        "jquery-match-height": "^0.7.2",
+        "postcss": "^7.0.5"
+    },
+    "browserslist": [
+        "last 10 version"
+    ],
+    "devDependencies": {
+        "grunt-contrib-imagemin": "^3.1.0"
+    }
+}
