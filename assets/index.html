@@ -10,6 +10,32 @@
         </meta>
     </head>
     <body style="margin: 0; background: rgb(126, 126, 126);">
+
+        <style>
+            #tooltip {
+              background-color: #333;
+              color: white;
+              padding: 5px 10px;
+              border-radius: 4px;
+              font-size: 13px;
+            }
+          </style>
+          
+          <button id="button" aria-describedby="tooltip">I'm a button</button>
+          <div id="tooltip" role="tooltip">I'm a tooltip</div>
+          
+          <script src="https://unpkg.com/@popperjs/core@^2.0.0"></script>
+          <script>
+            const button = document.querySelector('#button');
+            const tooltip = document.querySelector('#tooltip');
+          
+            // Pass the button, the tooltip, and some options, and Popper will do the
+            // magic positioning for you:
+            Popper.createPopper(button, tooltip, {
+              placement: 'right',
+            });
+          </script>
+          
         <input id="anPageName" name="page" type="hidden" value="home"/>
         <div class="home">
             <div style="width: 1440px; height: 100%; position:relative; margin:auto; background-color: #fff; overflow: hidden;">
@@ -295,7 +321,7 @@
                 </div>
                 <div class="group">
                     <div class="aboutplatform">
-                        About Platform
+                        Watch Intro
                     </div>
                     <img anima-src="./img/01-00-00-home-oval-3@2x.png" class="oval3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     <img anima-src="./img/01-00-00-home-path-41@2x.png" class="path2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>

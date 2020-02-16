@@ -10,6 +10,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         // let us know if our JS is sound
         jshint: {
             options: {
@@ -36,7 +37,7 @@ module.exports = function(grunt) {
             },
             all: [
                 'Gruntfile.js',
-                'js/source/*.js'
+                //'js/*.js'
             ]
         },
 
@@ -54,51 +55,22 @@ module.exports = function(grunt) {
             }
         },
       
-        //   // concatenation and minification all in one
-        //   uglify: {
-        //     options: {
-        //         sourceMap: true
-        //     },
-        //     dist: {
-        //         files: {
-        //             'js/build/vendor.min.js': [
-        //                 'js/vendor/imagesloaded.pkgd.min.js',
-        //                 'js/vendor/bgsrcset.js',
-        //                 'js/vendor/slick.js',
-        //                 'js/vendor/social-share-kit.min.js',
-		// 				'js/vendor/jsrender/jsrender.js',
-		// 				'js/vendor/underscore/underscore-min.js',
-		// 				'js/vendor/unveil/jquery.unveil.min.js',
-		// 				'js/vendor/history/scripts/bundled-uncompressed/html5/jquery.history.js',
-		// 				'js/vendor/jquery.xdomainrequest.min.js',
-		// 				'js/vendor/jquery-validation/dist/jquery.validate.min.js',
-		// 				'js/vendor/jquery-zoom/jquery.zoom.min.js',
-        //                 'js/vendor/jquery.svg.package-1.5.0/jquery.svg.min.js',
-        //                 'js/vendor/flickity.pkgd.min.js',
-        //                 'js/vendor/flickity-fade.js',
-        //                 'js/vendor/modernizr-custom2.js'
-        //             ],
-        //             'js/build/script.min.js': [
-        //                 'js/source/utilities.js',
-		// 				'js/source/shop-utilities.js',
-		// 				'js/source/shop-cart-interaction.js',
-		// 				'js/source/shop-sidebar-filters.js',
-		// 				'js/source/shop-init.js',
-        //                 'js/source/global.js',
-        //                 'js/source/interactive-map.js',
-        //                 'js/source/vineyards-map.js',
-        //                 'js/source/jquery.matchHeight-min.js'
-        //             ],
-        //             'js/build/admin-api.min.js': [
-        //                 'js/vendor/jsrender/jsrender.js',
-        //                 'js/vendor/underscore/underscore-min.js',
-        //                 'js/source/shop-utilities.js',
-        //                 'js/source/shop-data-processing.js',
-        //                 'js/source/shop-admin.js'
-        //             ]
-        //         }
-        //     }
-        // },
+          // concatenation and minification all in one
+          uglify: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: {
+                    'js/build/script.min.js': [
+                        'js/jquery.js',
+                        'js/jquery.fancybox.js',
+                        'js/jquery.typist.js',
+                        
+                    ]
+                }
+            }
+        },
 
 
         sass: {
@@ -108,8 +80,12 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'css/build/global.css': 'css/source/dynamic.scss',
-                }
+                    'css/build/global.css': 'css/source/dynamic.css',
+                },
+                'css/build/glob.css': [
+                    'css/source/custom.css',
+                    'css/source/dynamic.css'
+                ],
             }
         },
 
@@ -125,6 +101,15 @@ module.exports = function(grunt) {
                     livereload: 35729
                 }
             }
+        },
+        js: {
+            files: [
+                '<%= jshint.all %>'
+            ],
+            options: {
+                livereload: 35729
+            },
+            tasks: ['jshint', 'uglify']
         },
         postcss: {
             options: {
@@ -151,16 +136,28 @@ module.exports = function(grunt) {
           },
 
         htmlmin: {                                     // Task
-        dist: {                                      // Target
-            options: {                                 // Target options
-            removeComments: true,
-            collapseWhitespace: true
-            },
-            files: {                                   // Dictionary of files
-            '../index.html': 'index.html',     // 'destination': 'source'
+            dist: {                                      // Target
+                options: {                                 // Target options
+                removeComments: true,
+                collapseWhitespace: true
+                },
+                files: {                                   // Dictionary of files
+                '../index.html': 'index.html',     // 'destination': 'source'
+                }
             }
-        }
-        }
+        },
+
+         concat_css: {
+            options: {
+              // Task-specific options go here.
+            },
+            all: {
+              src: ["css/source/*.css"],
+              dest: "styles.css"
+            },
+          },
+        
+          
     });
 
     // load tasks
@@ -173,6 +170,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-concat-css');
     
 
     // register task
@@ -182,8 +180,11 @@ module.exports = function(grunt) {
         'uglify',
         'postcss',
         'watch',
-        'cssmin'
+        'cssmin',
+        'htmlmin',
+        'concat_css'
     ]);
+    
     
 
 };
