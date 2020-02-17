@@ -1,41 +1,18 @@
-
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="./img/favicon.png" rel="shortcut icon"/>
         <meta charset="utf-8"/>
         <meta content="width=1440, maximum-scale=1.0" name="viewport"/>
-        <link href="assets/css/build/global.min.css" rel="stylesheet" type="text/css"/>
-        <meta content="Launchpad by Anima" name="author">
+        
+        <link href="assets/css/build/global.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="assets/js/build/script.min.js"></script>
+        <link  type="image/x-icon"  href="./img/fav_mar.ico" rel="shortcut icon"/>
+        <meta content="Gera Yeremin" name="author">
         </meta>
-    </head>
-    <body style="margin: 0; background: rgb(126, 126, 126);">
 
-        <style>
-            #tooltip {
-              background-color: #333;
-              color: white;
-              padding: 5px 10px;
-              border-radius: 4px;
-              font-size: 13px;
-            }
-          </style>
-          
-          <button id="button" aria-describedby="tooltip">I'm a button</button>
-          <div id="tooltip" role="tooltip">I'm a tooltip</div>
-          
-          <script src="https://unpkg.com/@popperjs/core@^2.0.0"></script>
-          <script>
-            const button = document.querySelector('#button');
-            const tooltip = document.querySelector('#tooltip');
-          
-            // Pass the button, the tooltip, and some options, and Popper will do the
-            // magic positioning for you:
-            Popper.createPopper(button, tooltip, {
-              placement: 'right',
-            });
-          </script>
-          
+    </head>
+
+    <body style="margin: 0; background: rgb(126, 126, 126);">
         <input id="anPageName" name="page" type="hidden" value="home"/>
         <div class="home">
             <div style="width: 1440px; height: 100%; position:relative; margin:auto; background-color: #fff; overflow: hidden;">
@@ -101,13 +78,20 @@
                     <div class="jitfundingforond">
                         JIT Funding for <br />On-demand Delivery Services
                     </div>
-                    <div class="group28">
+
+                    <div id="button" aria-describedby="tooltip" class="group28">
                         <img anima-src="./img/01-00-00-home-oval-2@2x.png" class="oval3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                         <div class="group25">
                             <img anima-src="./img/01-00-00-home-line-3@2x.png" class="line" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                             <img anima-src="./img/01-00-00-home-line-3@2x.png" class="line1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                         </div>
                     </div>
+
+                    <div id="tooltip" role="tooltip">
+                        Legacy payment solutions are slow, rigid and lack fraud controls. 
+                        <div id="arrow" data-popper-arrow></div>
+                    </div>
+
                     <div class="group28copy">
                         <img anima-src="./img/01-00-00-home-oval-2@2x.png" class="oval3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                         <div class="group25">
@@ -123,7 +107,7 @@
                     <div class="disbursefundstomu">
                         Disburse Funds <br />to Multiple Card Types
                     </div>
-                    <img anima-src="./img/01-00-00-home-bitmap-1@2x.png" class="bitmap" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+                    <img id="button" aria-describedby="tooltip2" anima-src="./img/01-00-00-home-bitmap-1@2x.png" class="bitmap" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     <div class="group28copy2">
                         <img anima-src="./img/01-00-00-home-oval-2@2x.png" class="oval3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                         <div class="group25">
@@ -131,6 +115,12 @@
                             <img anima-src="./img/01-00-00-home-line-3@2x.png" class="line1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                         </div>
                     </div>
+
+                    <div id="tooltip" role="tooltip">
+                        Legacy payment solutions are slow, rigid and lack fraud controls. 
+                        <div id="arrow" data-popper-arrow></div>
+                    </div>
+
                     <div class="issuingvirtualcard">
                         Issuing Virtual Cards for E-Commerce
                     </div>
@@ -163,7 +153,7 @@
                     Easily expand across the United States, Europe and Asia with our global ready platform.
                 </div>
                 <div class="moderncardissuing">
-                    <span class="span1">Modern card issuing that empowers </span><span class="span2">innovators to change the world</span>
+                    <span class="span1 ">Modern card issuing that empowers </span><span class="span2 typist"></span>
                 </div>
                 <div class="scaleglobally">
                     Scale Globally
@@ -319,13 +309,18 @@
                         Forbes Fintech Award
                     </div>
                 </div>
-                <div class="group">
+                
+
+                <a  data-slide-class='customVid' data-fancybox="iframe" href="https://www.youtube.com/embed/5Ep2_bvXWrs">
+                <div class="group animated infinite pulse delay-2">
                     <div class="aboutplatform">
                         Watch Intro
                     </div>
                     <img anima-src="./img/01-00-00-home-oval-3@2x.png" class="oval3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     <img anima-src="./img/01-00-00-home-path-41@2x.png" class="path2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
+                </a>
+
                 <div class="group32">
                     <div class="a10yearsofmodern">
                         10+ years of modern issuing experience
@@ -608,6 +603,7 @@
                     <img anima-src="./img/01-00-00-home-fill-33-copy-4-2@2x.png" class="fill33copy4" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                     <img anima-src="./img/01-00-00-home-fill-33-copy-4-1@2x.png" class="fill33copy41" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
                 </div>
+                
             </div>
         </div>
         <!-- Scripts -->
@@ -687,5 +683,70 @@
             }, 200);
         </script>
         <!-- End of Scripts -->
+
+       
+        <!--Start Popper Script -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+        <script>
+          const button = document.querySelector('#button');
+          const tooltip = document.querySelector('#tooltip');
+    
+          let popperInstance = null;
+    
+          function create() {
+            popperInstance = Popper.createPopper(button, tooltip, {
+              modifiers: [
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [0, 8],
+                  },
+                },
+              ],
+            });
+          }
+    
+          function destroy() {
+            if (popperInstance) {
+              popperInstance.destroy();
+              popperInstance = null;
+            }
+          }
+    
+          function show() {
+            tooltip.setAttribute('data-show', '');
+            create();
+          }
+    
+          function hide() {
+            tooltip.removeAttribute('data-show');
+            destroy();
+          }
+    
+          const showEvents = ['mouseenter', 'focus'];
+          const hideEvents = ['mouseleave', 'blur'];
+    
+          showEvents.forEach(event => {
+            button.addEventListener(event, show);
+          });
+    
+          hideEvents.forEach(event => {
+            button.addEventListener(event, hide);
+          });
+        </script>
+        <!--End Popper Script -->
+
+        <!--Start type Script -->
+        <script>
+        jQuery(function($) {
+            $('.typist').typist({
+                speed: 12,
+                text: 'innovators to change the world.'
+            });
+        });
+        </script>
+        <!--End type Script -->
+
     </body>
 </html>
