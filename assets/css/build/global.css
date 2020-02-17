@@ -18,6 +18,9 @@
 /* Fancy Box */
 .fancybox-slide:before { background: url(../../../img/main-navigation__logo-chevron.png) no-repeat center center !important; content: "."; position: relative; width: 100% !important; height: 130px !important; z-index: 8040; display: block; margin-bottom: 20px; background-size: contain !important; }
 
+/* Add Button Under Player */
+.fancybox-slide:after { background: url(../../../img/demo.png) no-repeat center center !important; content: "."; position: relative; width: 100% !important; height: 36px !important; z-index: 8040; display: block; margin-bottom: 20px; background-size: contain !important; margin-top: 17px; }
+
 /* .fancybox-slide .fancybox-container { width: 50% !important; } */
 .customVid .fancybox-content { width: 1080px !important; height: 610px !important; max-width: none !important; max-height: none !important; }
 
@@ -278,6 +281,8 @@ body.compensate-for-scrollbar { overflow: hidden; }
   .fancybox-thumbs__list a { max-width: calc(100% - 10px); } }
 
 /* Dynamic */
+.group21 { font-weight: 700; }
+
 .home { width: 100%; min-width: 1440px; height: 100vh; min-height: 8687px; position: relative; overflow: hidden; margin: 0px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background-color: #e2e2e2; }
 
 a { text-decoration: none; }

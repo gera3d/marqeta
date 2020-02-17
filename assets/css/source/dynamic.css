@@ -57,6 +57,20 @@
   background-size: contain!important;
 }
 
+/* Add Button Under Player */
+.fancybox-slide:after {
+  background: url(../../../img/demo.png) no-repeat center center!important;
+  content: ".";
+  position: relative;
+  width: 100% !important;
+  height: 36px !important;
+  z-index: 8040; 
+  display: block;
+  margin-bottom: 20px;
+  background-size: contain!important;
+  margin-top: 17px;
+}
+
 /* .fancybox-slide .fancybox-container {
   width: 50% !important;
 } */
@@ -966,6 +980,10 @@ body.compensate-for-scrollbar {
 }
 
 /* Dynamic */
+.group21 {
+  font-weight: 700;
+}
+
 .home {
   width               : 100%;
   min-width           : 1440px;

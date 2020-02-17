@@ -311,7 +311,7 @@
                 </div>
                 
 
-                <a  data-slide-class='customVid' data-fancybox="iframe" href="https://www.youtube.com/embed/5Ep2_bvXWrs">
+                <a id='intro'  data-slide-class='customVid' data-fancybox="iframe" href="https://www.youtube.com/embed/5Ep2_bvXWrs">
                 <div class="group animated infinite pulse delay-2">
                     <div class="aboutplatform">
                         Watch Intro
@@ -747,6 +747,12 @@
         });
         </script>
         <!--End type Script -->
+
+        <!-- Start Add CTA box to player -->
+        <script>
+        $( ".fancybox-slide" ).append( "<hr style='clear:both; border: 0px;'><a class='playericon type3' href='/request-appointment'><button type='button' class='btn-md pull-right pri '>Request Appointment</button></a>" );
+        </script>
+        <!-- End Add CTA box to player -->
 
     </body>
 </html>
